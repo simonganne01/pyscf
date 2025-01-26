@@ -495,6 +495,9 @@ def get_coulG(
         # interaction. The periodic part of (ii|ii) in exchange cannot be
         # cancelled out by Coulomb integrals. Its leading term is calculated
         # using Ewald probe charge (the function madelung below)
+        print(f"cell.dimension: {cell.dimension}")
+        print(f"exxdiv: {exxdiv}")
+        print(f"G0_idx: {G0_idx}")
         if cell.dimension > 0 and exxdiv == "ewald" and len(G0_idx) > 0:
             print("madelung term")
             coulG[G0_idx] += Nk * cell.vol * madelung(cell, kpts)
